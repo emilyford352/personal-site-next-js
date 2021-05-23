@@ -1,4 +1,4 @@
-import Head from 'next/head'
+// import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -10,12 +10,13 @@ export default function Home() {
   return (
     <div>
       <Title>
-          Emily Mame Ford
+        Emily Mame Ford
       </Title>
       <Link href="/videos/first-video">
-         <a>this page!</a>
+        <a>this page!</a>
       </Link>
-      <style jsx global>{`
+      <style jsx global>
+        {`
         html,
         body {
           padding: 0;
@@ -28,7 +29,8 @@ export default function Home() {
         * {
           box-sizing: border-box;
         }
-      `}</style>
+      `}
+      </style>
     </div>
-  )
+  );
 }
