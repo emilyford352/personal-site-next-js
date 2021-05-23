@@ -1,5 +1,5 @@
-import Header from '../components/header';
 import { createGlobalStyle } from 'styled-components';
+import Header from '../components/header';
 
 const GlobalStyle = createGlobalStyle`
         html,
