@@ -1,22 +1,7 @@
-// import Head from 'next/head';
-import Link from 'next/link';
-import styled from 'styled-components';
+import Header from '../components/header';
+import { createGlobalStyle } from 'styled-components';
 
-const Title = styled.h1`
-    text-align: center;
-`;
-
-export default function Home() {
-  return (
-    <div>
-      <Title>
-        Emily Mame Ford
-      </Title>
-      <Link href="/videos/first-video">
-        <a>this page!</a>
-      </Link>
-      <style jsx global>
-        {`
+const GlobalStyle = createGlobalStyle`
         html,
         body {
           padding: 0;
@@ -29,8 +14,13 @@ export default function Home() {
         * {
           box-sizing: border-box;
         }
-      `}
-      </style>
+`;
+
+export default function Home() {
+  return (
+    <div>
+      <Header />
+      <GlobalStyle />
     </div>
   );
 }
