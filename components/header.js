@@ -1,30 +1,39 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styled from 'styled-components';
-
-const Title = styled.h1`
-    text-align: center;
-`;
+import HeaderLink from './header-link';
 
 const StyledHead = styled.div`
     width: 100%;
     display: flex;
-    background-color: black;
     justify-content: center;
 `;
 
-const StyledLink = styled(Link)`
-    flex: 1;
+const ImageWrapper = styled.div`
+    display: flex;
+    justify-content: center;
     padding: 20px;
 `;
 
-export default function Header() {
+export default function Header({ activePath }) {
   return (
     <div>
-      <Title>Emily Mame Ford</Title>
+      <Link href="/">
+        <a>
+          <ImageWrapper>
+            <Image
+              src="/headerImage.png"
+              alt="emily mame ford"
+              width={400}
+              height={200}
+            />
+          </ImageWrapper>
+        </a>
+      </Link>
       <StyledHead>
-        <StyledLink href="/videos/first-video">
-          <a>this page!</a>
-        </StyledLink>
+        <HeaderLink activePath={activePath} path="/videos/love-is-blind" pathName="Love is Blind" />
+        <HeaderLink activePath={activePath} path="/videos/dawsons-creek" pathName="Dawsons Creek" />
+        <HeaderLink activePath={activePath} path="/videos/podcast-appearances" pathName="Podcast Appearances" />
       </StyledHead>
     </div>
   );
