@@ -7,12 +7,16 @@ const GlobalStyle = createGlobalStyle`
     body {
       padding: 0;
       margin: 0;
+      overflow-y: scroll;
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
         Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
         sans-serif;
     }
     * {
       box-sizing: border-box;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
     }
 `;
 

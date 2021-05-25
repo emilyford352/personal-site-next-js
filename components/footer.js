@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faSpotify, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import {
+  faTwitter, faSpotify, faYoutube, faTiktok,
+} from '@fortawesome/free-brands-svg-icons';
 
 const SocialMediaWrapper = styled.div`
   padding-top: 20px;
@@ -27,18 +29,19 @@ const Link = styled.a`
 
 export default function Footer() {
   return (
-    <div>
-      <SocialMediaWrapper>
-        <Link href="https://twitter.com/emilymameford" target="_blank">
-          <SocialMediaIcon icon={faTwitter} />
-        </Link>
-        <Link href="https://open.spotify.com/artist/5oKkOdheCKdfkPxsFzgI7C?si=-CAGkimXRdqaadi46l54_Q" target="_blank">
-          <SocialMediaIcon icon={faSpotify} />
-        </Link>
-        <Link href="https://www.youtube.com/c/emilymameford" target="_blank">
-          <SocialMediaIcon icon={faYoutube} />
-        </Link>
-      </SocialMediaWrapper>
-    </div>
+    <SocialMediaWrapper>
+      <Link href="https://twitter.com/emilymameford" target="_blank">
+        <SocialMediaIcon icon={faTwitter} />
+      </Link>
+      <Link href="https://open.spotify.com/artist/5oKkOdheCKdfkPxsFzgI7C?si=-CAGkimXRdqaadi46l54_Q" target="_blank">
+        <SocialMediaIcon icon={faSpotify} />
+      </Link>
+      <Link href="https://www.youtube.com/c/emilymameford" target="_blank">
+        <SocialMediaIcon icon={faYoutube} />
+      </Link>
+      <Link href="https://www.tiktok.com/@emilymameford" target="_blank">
+        <SocialMediaIcon icon={faTiktok} />
+      </Link>
+    </SocialMediaWrapper>
   );
 }

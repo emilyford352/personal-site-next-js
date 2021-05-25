@@ -1,3 +1,5 @@
+import Tweets from '../components/tweets';
+
 export default function Home() {
   return (
     <div>
@@ -12,6 +14,7 @@ export default function Home() {
           title="Embedded youtube"
         />
       </div>
+      <Tweets />
     </div>
   );
 }
