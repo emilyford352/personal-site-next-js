@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import styled from 'styled-components';
 import HeaderLink from './header-link';
 
@@ -28,7 +27,7 @@ export default function Header({ activePath }) {
       <Link href="/">
         <a>
           <ImageWrapper>
-            <Image
+            <img
               src="/headerImage.png"
               alt="emily mame ford"
               width={300}
