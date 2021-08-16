@@ -12,8 +12,8 @@ export default function Home() {
     <div>
       <Container>
         <iframe
-          width="450"
-          height="250"
+          width="550"
+          height="350"
           src="https://www.youtube.com/embed/7bc2lU3kUEk"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

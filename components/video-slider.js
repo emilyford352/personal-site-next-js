@@ -6,6 +6,8 @@ import {
   faChevronRight, faChevronLeft,
 } from '@fortawesome/free-solid-svg-icons';
 
+import { useMediaQuery } from 'react-responsive';
+
 const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -33,46 +35,79 @@ const SelectedVideo = styled.div`
     padding-top: 10px;
 `;
 
-const dawsonsCreekVideos = [{ id: '7ubOQl3U7yQ', title: 'Trailer' }, { id: 'GucuU_nti24', title: 'Episode 1' }, { id: 'xvdbcZWg8oo', title: 'Episode 2' }, { id: 'GqVBkRCpDfQ', title: 'Episode 3' }, { id: 'VQd8j_LzdWo', title: 'Episode 4' }];
+const MobileArrowsWrapper = styled.div`
+    display: flex;
+`;
 
-export default function LoveIsBlind() {
-  const [selectedVideo, setSelectedVideo] = useState(dawsonsCreekVideos[0]);
+export default function VideoSlider({videos = [], videosDescription = `Dawson's Creek: Sims Edition`}) {
+  const [selectedVideo, setSelectedVideo] = useState(videos[0]);
 
-  const amountOfVideos = dawsonsCreekVideos.length;
-  const currentSelectedVideoIndex = dawsonsCreekVideos.indexOf(selectedVideo);
-
-  const selectNextVideo = () => {
-    const newSelectedVideoIndex = amountOfVideos - 1 === currentSelectedVideoIndex ? 0 : currentSelectedVideoIndex + 1;
-    setSelectedVideo(dawsonsCreekVideos[newSelectedVideoIndex]);
-  };
+  const amountOfVideos = videos.length;
+  const currentSelectedVideoIndex = videos.indexOf(selectedVideo);
 
   const selectLastVideo = () => {
     const newSelectedVideoIndex = currentSelectedVideoIndex === 0 ? amountOfVideos - 1 : currentSelectedVideoIndex - 1;
-    setSelectedVideo(dawsonsCreekVideos[newSelectedVideoIndex]);
+    setSelectedVideo(videos[newSelectedVideoIndex]);
   };
 
-  return (
-      <div>
-    <Container>
-      <ArrowContainer>
-        <StyledIcon icon={faChevronLeft} onClick={() => selectLastVideo()} />
-      </ArrowContainer>
-      <iframe
-        width="800"
-        height="520"
-        src={`https://www.youtube.com/embed/${selectedVideo.id}`}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        title="Embedded youtube"
-      />
-        <ArrowContainer>
-        <StyledIcon icon={faChevronRight} onClick={() => selectNextVideo()} />
-      </ArrowContainer>
-    </Container>
-    <SelectedVideo>
-        {`Dawson's Creek: Sims Edition - ${selectedVideo.title}`}
-    </SelectedVideo>
-      </div>
-  );
+  const selectNextVideo = () => {
+    const newSelectedVideoIndex = amountOfVideos - 1 === currentSelectedVideoIndex ? 0 : currentSelectedVideoIndex + 1;
+    setSelectedVideo(videos[newSelectedVideoIndex]);
+  };
+
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
+    if (isMobile) {
+    return (
+        <div>
+          <Container>
+            <iframe
+                width="800"
+                height="520"
+                src={`https://www.youtube.com/embed/${selectedVideo.id}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Embedded youtube"
+            />
+          </Container>
+          <SelectedVideo>
+            {`${videosDescription} - ${selectedVideo.title}`}
+          </SelectedVideo>
+          <MobileArrowsWrapper>
+              <ArrowContainer>
+                <StyledIcon icon={faChevronLeft} onClick={() => selectLastVideo()}/>
+              </ArrowContainer>
+              <ArrowContainer>
+                <StyledIcon icon={faChevronRight} onClick={() => selectNextVideo()}/>
+              </ArrowContainer>
+          </MobileArrowsWrapper>
+        </div>
+    );
+  } else {
+    return (
+        <div>
+          <Container>
+            <ArrowContainer>
+              <StyledIcon icon={faChevronLeft} onClick={() => selectLastVideo()}/>
+            </ArrowContainer>
+            <iframe
+                width="800"
+                height="520"
+                src={`https://www.youtube.com/embed/${selectedVideo.id}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Embedded youtube"
+            />
+            <ArrowContainer>
+              <StyledIcon icon={faChevronRight} onClick={() => selectNextVideo()}/>
+            </ArrowContainer>
+            </Container>
+            <SelectedVideo>
+              {`${videosDescription} - ${selectedVideo.title}`}
+            </SelectedVideo>
+        </div>
+    );
+  }
 }

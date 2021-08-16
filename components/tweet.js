@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 
-const Container = styled.div`
+const StyledTweet = styled(TwitterTweetEmbed)`
     display: flex;
     justify-content: center;
+    align-items: center;
 `;
 
 export default function Tweet({ tweetId }) {
   return (
-    <Container>
-      <TwitterTweetEmbed
+      <StyledTweet
+        key={tweetId}
         tweetId={tweetId}
         theme="dark"
         dnt
-        width="250"
+        width="400"
       />
-    </Container>
   );
 }

@@ -5,7 +5,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 const SocialMediaWrapper = styled.div`
-  padding-top: 20px;
   padding-bottom: 10px;
   text-align: center;
 `;
