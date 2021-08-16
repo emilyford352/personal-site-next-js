@@ -1,17 +1,15 @@
-export default function LoveIsBlind() {
+import VideoSlider from '../../components/video-slider';
+
+const dawsonsCreekVideos = [
+    { id: '7ubOQl3U7yQ', title: 'Trailer' },
+    { id: 'GucuU_nti24', title: 'Episode 1' },
+    { id: 'xvdbcZWg8oo', title: 'Episode 2' },
+    { id: 'GqVBkRCpDfQ', title: 'Episode 3' },
+    { id: 'VQd8j_LzdWo', title: 'Episode 4' }
+];
+
+export default function DawsonsCreek() {
   return (
-    <div>
-      <div className="video-responsive">
-        <iframe
-          width="450"
-          height="250"
-          src="https://www.youtube.com/embed/7ubOQl3U7yQ"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title="Embedded youtube"
-        />
-      </div>
-    </div>
+    <VideoSlider videos={dawsonsCreekVideos} videosDescription={`Dawson's Creek - Sims Edition`} />
   );
 }
